@@ -26,9 +26,11 @@ describe('invocarCallback(cb)', function () {
 
 describe('operacionMatematica(n1, n2, cb)', function () {
   it('should return the callback function passing it the received arguments', function () {
-    const cb = jest.fn();
+    const cb = jest.fn((x, y) => x + y);
     operacionMatematica(100, 20, cb);
+    const res = operacionMatematica(100, 20, cb);
     expect(cb).toHaveBeenCalled();
+    expect(res).toBe(120);
   });
 });
 
